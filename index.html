@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Under Progress</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            text-align: center;
+        }
+
+        .spinner {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+            border: 10px solid rgba(255, 255, 255, 0.3);
+            border-top: 10px solid #fff;
+            border-radius: 50%;
+            animation: spin 1.5s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            opacity: 0.8;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 30px;
+            height: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .hamburger span {
+            height: 3px;
+            background: white;
+            border-radius: 5px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            height: 100%;
+            width: 200px;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: left 0.3s ease;
+        }
+
+        .menu.open {
+            left: 0;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 15px 0;
+            transition: color 0.3s ease;
+        }
+
+        .menu a:hover {
+            color: #feb47b;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Footer */
+        footer {
+            position: absolute;
+            bottom: 10px;
+            text-align: center;
+            width: 100%;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="menu" id="menu">
+        <a href="#">Java</a>
+        <a href="#">DevOps</a>
+        <a href="#">Azure</a>
+        <a href="#">SQL</a>
+    </div>
+
+    <div class="container">
+        <div class="spinner"></div>
+        <h1>Work Under Progress</h1>
+        <p>We'll be up and running soon. Stay tuned!</p>
+    </div>
+
+    <footer>
+        &copy; Vikramaditya Singh 2024
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
+
+        hamburger.addEventListener('click', () => {
+            menu.classList.toggle('open');
+            hamburger.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
